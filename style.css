@@ -1,27 +1,231 @@
 * {
-    border: solid 1px red;
-    box-sizing: border-box;
-    /* serve a far sì che le dimensioni totali di un elemento (inclusi width e height) comprendano anche il padding e il border, invece di sommarli alla larghezza e altezza iniziali.
+  border: solid 1px red;
+  box-sizing: border-box;
+  /* serve a far sì che le dimensioni totali di un elemento (inclusi width e height) comprendano anche il padding e il border, invece di sommarli alla larghezza e altezza iniziali.
     Questo rende più intuitivo il calcolo delle dimensioni, semplificando notevolmente il layout, poiché larghezza e altezza impostate sono quelle effettive */
-  }
+}
 
 
-  html, body{
-    padding: 0;
-    margin: 0;
-  }
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  /* Se utilizzato per la larghezza della colonna, 1fr significa che la colonna occuperà una frazione dello spazio totale disponibile. */
+  grid-template-rows: repeat(29, 600px);
+  grid-template-areas:
+    "head head head"
+    "main1 main1 main1"
+    "main2 main2 main2"
+    "main3 main3 main3"
+    "main4 main4 main4"
+    "main5 main5 main5"
+    "main6 main6 main6"
+    "main7 main7 main7"
+    "main8 main8 main8"
+    "main9 main9 main9"
+    "main9 main9 main9"
+    "main10 main10 main10"
+    "main11 main11 main11"
+    "main12 main12 main12"
+    "main13 main13 main13"
+    "main14 main14 main14"
+    "main15 main15 main15"
+    "main16 main16 main16"
+    "main17 main17 main17"
+    "main18 main18 main18"
+    "main19 main19 main19"
+    "main20 main20 main20"
+    "main21 main21 main21"
+    "main22 main22 main22"
+    "main23 main23 main23"
+    "main24 main24 main24"
+    "main25 main25 main25"
+    "main26 main26 main26"
+    "foot foot foot"
+    "foot foot foot";
+}
+
+/* --------------------------HEADER------------------------------ */
+
+header {
+  height: 100vh;
+  display: grid;
+  grid-area: head;
+  /* La proprietà grid-area di CSS serve ad assegnare un nome a un'area della griglia, permettendo di definire in modo più leggibile e organizzato il layout di un sito web. Questo nome può poi essere usato nella proprietà grid-template-areas del contenitore per definire quali celle la griglia occupa, rendendo la struttura del layout più chiara e facile da mantenere rispetto a definizioni più complesse */
+  background-color: #ffcc00;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas:
+    "header1 header2";
+  padding: 5px;
+}
+
+.logo-jazz {
+  grid-area: header1;
+  margin: 15px;
+}
+
+.header-text {
+  grid-area: header1;
+  align-self: end;
+  margin-bottom: 30px;
+  margin-left: 15px;
+  font-family: "Matter Regular";
+  line-height: 2rem;
+}
+
+.play-button {
+  grid-area: header2;
+}
+
+@media (max-width:925px){
+  header {
+  grid-template-columns: 1fr;
+  grid-template-rows: 60vh 1fr;
+  grid-template-areas:
+    "header1"
+    "header2";
+  row-gap: 10px;
+    /* MI MANCA RIDIMENSIONARE LE IMMAGINI! */
+}
+}
+
+@media (max-width:480px){
+    header {
+  grid-template-columns: 1fr;
+  grid-template-rows: 30vh 30vh 30vh;
+  grid-template-areas:
+    "header1"
+    "header1"
+    "header2";
+  row-gap: 10px;
+     /* MI MANCA RIDIMENSIONARE LE IMMAGINI! */
+}
+}
 
 
-  .main-div{
-    display: grid;
-    grid-template-rows: repeat(29, 15vw);
-    grid-template-columns: repeat(3, 25vh);
-    grid-template-areas: 
-    "header header header"
-    "img1 img1 main1"
-    "img2 img2 img2"; 
-  }
+/* ------------------FOOTER------------------------- */
 
-  .area-header{
-    grid-area: header;
-  }
+footer {
+  height: 200vh;
+  background-color: #ffcc00;
+  display: grid;
+  grid-area: foot;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    "foot1 foot2"
+    "foot3 foot4";
+}
+
+
+.contact-text {
+  grid-area: foot1;
+  font-family: "Matter Bold";
+  font-size: 10.3vw;
+}
+
+
+.foot-right-column {
+  display: grid;
+  gap: 50px;
+  grid-area: foot2;
+  min-height: 100vh;
+  font-family:"Matter Regular";
+  font-size: 1.4rem;
+  overflow-y: auto;
+  scrollbar-width: none;
+  /* per fare sparire la barra di scroll */
+  line-height: 2.4rem;
+  /* spazio verticale tra i testi */
+}
+
+
+.black-ball {
+  width: 11.5vw;
+  height: 11.5vw;
+  /* l'unità vh in heigh DEFORMA la palla */
+  background-color: black;
+  border-radius: 20vw;
+  margin-left: auto;
+  display: block;
+  /* La proprietà CSS display: block fa sì che un elemento occupi l'intera larghezza disponibile e inizi su una nuova riga.  */
+}
+
+.divider {
+  height: 1px;
+  background-color: black;
+}
+
+.foot3 {
+  grid-area: foot3;
+  background-color: #660099;
+  align-content: center;
+
+}
+
+.open-mouth {
+  display: grid;
+  justify-content: center;
+}
+
+.foot4 {
+  grid-area: foot4;
+  background-color: #ff3333;
+  align-content: center;
+}
+
+.animated-arrow {
+  display: grid;
+  justify-content: center;
+  animation-name: arrow;
+  animation-duration: 1s;
+  animation-direction: normal;
+  animation-iteration-count: infinite;
+  animation-play-state: paused;
+}
+
+.animated-arrow:hover{
+  animation-play-state: running;
+  /* Perché l'animazione parta col passare del mouse, è importante usare la sub-classe. Gli effetti hover, ovvero una particolare animazione che si ottiene quando un utente passa con il cursore del mouse su un determinato pulsante (o elemento), senza selezionarlo o cliccarlo.*/
+}
+
+@keyframes arrow {
+  from{transform: rotate(0deg)}
+  to{transform: rotate(-45deg);}
+  
+}
+
+/* -------------------------OTHERS------------------------- */
+
+
+a{
+  text-decoration: none;
+  color: black;
+}
+
+.inline{
+display: flex;
+justify-content: space-between;
+}
+
+.center{
+  display: grid;
+  justify-content: center;
+}
+
+@font-face {
+  /* questa regola serve per definire il font e il suo percorso */
+  font-family: "Matter Bold";
+  src: url(./assets/Matter-Bold.otf);
+}
+
+@font-face {
+  font-family: "Matter Regular";
+  src: url(./assets/Matter-Regular.ttf);
+}
