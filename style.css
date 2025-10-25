@@ -15,44 +15,19 @@ body {
 body {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  /* grid-template-columns: max-content; */
   /* Se utilizzato per la larghezza della colonna, 1fr significa che la colonna occuperà una frazione dello spazio totale disponibile. */
-  grid-template-rows: repeat(29, 600px);
+  grid-template-rows: repeat(3, auto);
   grid-template-areas:
     "head head head"
-    "main1 main1 main1"
-    "main2 main2 main2"
-    "main3 main3 main3"
-    "main4 main4 main4"
-    "main5 main5 main5"
-    "main6 main6 main6"
-    "main7 main7 main7"
-    "main8 main8 main8"
-    "main9 main9 main9"
-    "main9 main9 main9"
-    "main10 main10 main10"
-    "main11 main11 main11"
-    "main12 main12 main12"
-    "main13 main13 main13"
-    "main14 main14 main14"
-    "main15 main15 main15"
-    "main16 main16 main16"
-    "main17 main17 main17"
-    "main18 main18 main18"
-    "main19 main19 main19"
-    "main20 main20 main20"
-    "main21 main21 main21"
-    "main22 main22 main22"
-    "main23 main23 main23"
-    "main24 main24 main24"
-    "main25 main25 main25"
-    "main26 main26 main26"
-    "foot foot foot"
+    "main main main"
     "foot foot foot";
 }
 
 /* --------------------------HEADER------------------------------ */
 
 header {
+  max-width: 100%;
   height: 100vh;
   display: grid;
   grid-area: head;
@@ -62,12 +37,12 @@ header {
   grid-template-rows: 1fr;
   grid-template-areas:
     "header1 header2";
-  padding: 5px;
 }
 
 .logo-jazz {
   grid-area: header1;
   margin: 15px;
+  padding: 5px;
 }
 
 .header-text {
@@ -77,41 +52,155 @@ header {
   margin-left: 15px;
   font-family: "Matter Regular";
   line-height: 2rem;
+  padding: 5px;
 }
 
 .play-button {
   grid-area: header2;
+  display: grid;
+  /* per poter utilizzare le proprietà del grid */
+  justify-items: center;
 }
 
-@media (max-width:925px){
+@media (max-width:510px) {
   header {
-  grid-template-columns: 1fr;
-  grid-template-rows: 60vh 1fr;
-  grid-template-areas:
-    "header1"
-    "header2";
-  row-gap: 10px;
-    /* MI MANCA RIDIMENSIONARE LE IMMAGINI! */
-}
+    grid-template-columns: 1fr;
+    grid-template-rows: 50vh 1fr;
+    grid-template-areas:
+      "header1"
+      "header2";
+    overflow: hidden;
+    /* overflow: hidden è una proprietà CSS che nasconde il contenuto che non rientra nei bordi di un elemento */
+  }
+
+  .logo-jazz {
+    width: 70%;
+    height: auto;
+  }
+
+  .play-button {
+    width: 60%;
+    height: auto;
+  }
+
 }
 
-@media (max-width:480px){
-    header {
+
+/* -----------------MAIN--------------------------------*/
+
+main {
+  max-width: 100%;
+  height: auto;
+  display: grid;
+  grid-area: main;
   grid-template-columns: 1fr;
-  grid-template-rows: 30vh 30vh 30vh;
+  grid-template-rows: 250vh 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-areas:
-    "header1"
-    "header1"
-    "header2";
-  row-gap: 10px;
-     /* MI MANCA RIDIMENSIONARE LE IMMAGINI! */
-}
+    "main1 main1 main1"
+    "main2 main2 main2"
+    "main3 main3 main3"
+    "main4 main4 main4"
+    "main5 main5 main5"
+    "main6 main6 main6"
+    "main7 main7 main7";
 }
 
+.main1 {
+  grid-area: main1;
+}
+
+.main2 {
+  grid-area: main2;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  /* grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: 
+  "m2-1 m2-2"
+  "m2-3 m2-4"; */
+}
+
+.huge-title{
+  font-weight: 300;
+  font-family: "Matter Bold";
+  font-size: 15vw;
+  letter-spacing: -4.25px;
+  /* letter-spacing in CSS è una proprietà che modifica lo spazio tra i caratteri di un testo. Puoi aumentarlo (con valori positivi) o diminuirlo (con valori negativi) per migliorare la leggibilità o ottenere un effetto visivo specifico, come si farebbe in un elaboratore di testi. */
+  line-height: 12.5vw;
+  margin: 10px 20px;
+}
+
+.black-ball {
+  width: 11.5vw;
+  height: 11.5vw;
+  /* l'unità vh in heigh DEFORMA la palla */
+  background-color: black;
+  border-radius: 20vw;
+  margin-top: 35px;
+  margin-right: 20px;
+  display: block;
+  /* La proprietà CSS display: block fa sì che un elemento occupi l'intera larghezza disponibile e inizi su una nuova riga.  */
+}
+
+.j-letter{
+  margin-top: -28%;
+  width: 580px;
+  height: auto;
+  padding: 15px
+}
+
+.number{
+  font-size: 3rem;
+  margin-right: 2rem;
+  font-family: "Matter Light";
+}
+
+.fm-column{
+display: flex;
+font-family: "Matter Light";
+flex-direction: column;
+flex-basis: 31%;
+/* La proprietà CSS
+flex-basis serve a definire la dimensione iniziale di un elemento flessibile, prima che lo spazio disponibile venga distribuito tra gli elementi e che vengano applicati gli effetti di flex-grow e flex-shrink */
+position: relative;
+top: -170px;
+left: -20px;
+}
+
+.fm{
+font-size: 6rem;
+font-weight: 300;
+font-family: "Matter Light";
+padding-top: 2rem;
+line-height: 6rem;
+margin-top: 0%;
+border-bottom: 1px black solid;
+}
+
+.fm-list{
+  margin-top: -97px;
+  font-size: 1.8rem;
+  line-height: 2rem;
+}
+
+.black-line{
+  border-bottom: 1px black solid;
+  display: flex;
+  height: 5rem;
+  align-items: center;
+}
+
+.hashtag{
+  margin-left: auto;
+  text-align: right;
+}
 
 /* ------------------FOOTER------------------------- */
 
 footer {
+  max-width: 100%;
   height: 200vh;
   background-color: #ffcc00;
   display: grid;
@@ -136,7 +225,7 @@ footer {
   gap: 50px;
   grid-area: foot2;
   min-height: 100vh;
-  font-family:"Matter Regular";
+  font-family: "Matter Regular";
   font-size: 1.4rem;
   overflow-y: auto;
   scrollbar-width: none;
@@ -145,17 +234,6 @@ footer {
   /* spazio verticale tra i testi */
 }
 
-
-.black-ball {
-  width: 11.5vw;
-  height: 11.5vw;
-  /* l'unità vh in heigh DEFORMA la palla */
-  background-color: black;
-  border-radius: 20vw;
-  margin-left: auto;
-  display: block;
-  /* La proprietà CSS display: block fa sì che un elemento occupi l'intera larghezza disponibile e inizi su una nuova riga.  */
-}
 
 .divider {
   height: 1px;
@@ -190,31 +268,35 @@ footer {
   animation-play-state: paused;
 }
 
-.animated-arrow:hover{
+.animated-arrow:hover {
   animation-play-state: running;
   /* Perché l'animazione parta col passare del mouse, è importante usare la sub-classe. Gli effetti hover, ovvero una particolare animazione che si ottiene quando un utente passa con il cursore del mouse su un determinato pulsante (o elemento), senza selezionarlo o cliccarlo.*/
 }
 
 @keyframes arrow {
-  from{transform: rotate(0deg)}
-  to{transform: rotate(-45deg);}
-  
+  from {
+    transform: rotate(0deg)
+  }
+
+  to {
+    transform: rotate(-45deg);
+  }
+
 }
 
 /* -------------------------OTHERS------------------------- */
 
-
-a{
+a {
   text-decoration: none;
   color: black;
 }
 
-.inline{
-display: flex;
-justify-content: space-between;
+.inline {
+  display: flex;
+  justify-content: space-between;
 }
 
-.center{
+.center {
   display: grid;
   justify-content: center;
 }
@@ -229,3 +311,16 @@ justify-content: space-between;
   font-family: "Matter Regular";
   src: url(./assets/Matter-Regular.ttf);
 }
+
+@font-face {
+  font-family: "Matter Light";
+  src: url(./assets/Matter-Light.ttf);
+}
+
+.img-resize {
+  max-width: 100%;
+  /* L'immagine non sarà mai più larga del suo contenitore */
+  height: auto;
+  /* L'altezza si adatterà automaticamente per mantenere le proporzioni */
+}
+
