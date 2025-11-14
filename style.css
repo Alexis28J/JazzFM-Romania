@@ -122,6 +122,13 @@ main {
   "m2-3 m2-4"; */
 }
 
+.main3 {
+grid-area: main3;
+display: flex;
+/* flex-wrap: wrap; */ /* disattivo questo perché colonna e immagine stiano in una sola riga */
+}
+
+
 .huge-title{
   font-weight: 300;
   font-family: "Matter Bold";
@@ -165,12 +172,14 @@ flex-basis: 31%;
 /* La proprietà CSS
 flex-basis serve a definire la dimensione iniziale di un elemento flessibile, prima che lo spazio disponibile venga distribuito tra gli elementi e che vengano applicati gli effetti di flex-grow e flex-shrink */
 position: relative;
+/* position: relative
+in CSS posiziona un elemento rispetto alla sua posizione normale nel flusso del documento, permettendo di spostarlo usando le proprietà top, right, bottom, e left. A differenza di position: static, il valore predefinito, relative consente la traslazione visiva, ma lascia uno spazio vuoto nella sua posizione originale.  */
 top: -170px;
 left: -20px;
 }
 
-.fm{
-font-size: 6rem;
+h3{
+font-size: 7rem;
 font-weight: 300;
 font-family: "Matter Light";
 padding-top: 2rem;
@@ -179,7 +188,7 @@ margin-top: 0%;
 border-bottom: 1px black solid;
 }
 
-.fm-list{
+.list{
   margin-top: -97px;
   font-size: 1.8rem;
   line-height: 2rem;
@@ -197,6 +206,20 @@ border-bottom: 1px black solid;
   text-align: right;
 }
 
+.online-column{
+  display: flex;
+  flex-direction: column;
+  font-family: "Matter Ligth";
+  flex-basis: 32%;
+  position: relative;
+  left: 20px;
+  top: 20px;
+}
+
+.a-letter{
+  margin-left: 20px;
+  padding: 15px;
+}
 /* ------------------FOOTER------------------------- */
 
 footer {
